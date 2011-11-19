@@ -1,0 +1,15 @@
+{
+  "name": "dubsiren",
+  "version": "0.0.1",
+  "description": "wicked dub effects",
+  "keywords": ["music", "dub"],
+  "repository": "",
+  "author": "Dan Newcome <dnewcome@elevenprime.com>",
+  "dependencies": {
+    "express": ">= 2.3.11",
+    "jade": ">= 0.15.2",
+    "sdlmixer": "*"
+  },
+  "devDependencies": {},
+  "main": "server"
+}

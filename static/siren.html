@@ -1,0 +1,39 @@
+<!html>
+<head>
+	<style>
+		.wrap {
+			margin: auto;
+			width: 600px;
+		}
+
+		.wail {
+			margin: auto;
+			width: 150px;
+			height: 50px;
+			display: block;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		
+		@font-face { 
+			font-family: "Chinese Rocks";
+			src: url(fonts/chinese_rocks.ttf)
+		}
+		span {
+			font-family: "Chinese Rocks";
+			font-size: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<span>Dub</span>
+		<img src="images/Police_Light_Red.jpg"></img>
+		<span>Siren</span>
+		<div>
+			<form action="/wail" method="post">
+				<button class="wail">Wail</button>
+			</form>
+		</div>
+	</div>
+</body>
