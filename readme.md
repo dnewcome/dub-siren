@@ -4,20 +4,27 @@ Dub Siren is a Node.js application that makes use of Simple DirectMedia Layer to
 The inspiration behind the app is the simple synth boxes used in Dub Reggae music to make 
 warbling and laser hit sounds. These boxes have come to be known affectionately as "Dub sirens".
 
+The inspiration behind creating a server app for playing Dub sounds came while working
+on some ideas for collaborative music jamming whilst listening to some Reggae music.
+
+This particular Dub siren is pre-set to play only one sound sample. The Dub siren is run on a server
+connected to a set of speakers and anyone can connect to it with a Web browser to play
+the sound.
+
 # Installation
 
 Dub Siren has been tested on OS X and Ubuntu Linux. It should work on Windows since SDL
 Mixer and Node.js are available for that platform, but I don't know if the Node module
 will compile on Windows.
 
-## OS X:
+### Mac OS X:
 
 Install Node and SDL Mixer using Homebrew
 Install npm using the npm bootstrap script
 Install dependencies using npm install
 Run the Dub Siren server under node
 
-## Ubuntu:
+### Ubuntu:
 
 Install Node and SDL Mixer using apt-get
 Install npm using the npm bootstrap script
@@ -30,6 +37,9 @@ Browsing to the root of the application will show the Dub Siren UI. Click the "w
 button to trigger the synth sound. That's all there is to it, however the sound 
 may also be triggered via the "API" which is to say that issuing an HTTP GET to 
 /wail also works. Script this on a timer using cURL for bonus points.
+
+Note that the sound will be played by the _server_ running the Node app, not through 
+the Web browser of the user triggering the sound.
 
 # Future Work
 
