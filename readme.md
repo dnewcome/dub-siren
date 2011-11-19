@@ -36,7 +36,7 @@ Run the Dub Siren server under node
 Browsing to the root of the application will show the Dub Siren UI. Click the "wail"
 button to trigger the synth sound. 
 
-![Dub Siren UI screenshot](https://github.com/dnewcome/dub-siren/raw/master/samples/screenshot.png)
+![Dub Siren UI screenshot](https://github.com/dnewcome/dub-siren/raw/master/screenshot.png)
 
 That's all there is to it, however the sound 
 may also be triggered via the "API" which is to say that issuing an HTTP GET to 
