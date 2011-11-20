@@ -66,6 +66,8 @@ That's all there is to it, however the sound
 may also be triggered via the "API" which is to say that issuing an HTTP GET to 
 /wail also works. Script this on a timer using cURL for bonus points.
 
+    $ curl http://localhost:3003/wail
+
 Note that the sound will be played by the _server_ running the Node app, not through 
 the Web browser of the user triggering the sound.
 
