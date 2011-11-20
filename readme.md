@@ -17,40 +17,40 @@ Dub Siren has been tested on OS X and Ubuntu Linux. It should work on Windows si
 Mixer and Node.js are available for that platform, but I don't know if the Node module
 will compile on Windows.
 
-### Mac OS X:
+### Mac OS X
 
-* Install Node and SDL Mixer using Homebrew
+Install Node and SDL Mixer using Homebrew
 
     $ brew install sdl_mixer
     $ brew install node
 
-* Install npm using the npm bootstrap script
+Install npm using the npm bootstrap script
 
     $ curl http://npmjs.org/install.sh | sh
 
-* Install dependencies using npm install
+Install dependencies using npm install
 
     $ npm install 
 
-* Run the Dub Siren server under node
+Run the Dub Siren server under node
 
     $ node server.js
 
-### Ubuntu:
+### Ubuntu
 
 Install Node and SDL Mixer using apt-get
 
     $ sudo apt-get install libsdl-mixer1.2-dev nodejs
 
-* Install npm using the npm bootstrap script
+Install npm using the npm bootstrap script
 
     $ curl http://npmjs.org/install.sh | sh
 
-* Install dependencies using npm install
+Install dependencies using npm install
 
     # npm install 
 
-* Run the Dub Siren server under node
+Run the Dub Siren server under node
 
     $ node server.js
 
