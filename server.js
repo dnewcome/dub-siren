@@ -24,6 +24,13 @@ app.get('/wail', function( req, res ) {
 	res.send( 'wailing' );
 });
 
+app.get('/play', function( req, res ) {
+	var note = req.query.note;
+	var vel = req.query.vel;
+	console.log( "note: " + note + " vel: " + vel );
+	res.send( 200 );
+});
+
 function wail() {
 	console.log('wailing');
 	sdlmixer.play('static/wavs/ZENIT_DUB_SIREN_02.wav');	
