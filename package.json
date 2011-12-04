@@ -8,6 +8,8 @@
   "dependencies": {
     "express": ">= 2.3.11",
     "jade": ">= 0.15.2",
+    "socket.io-client": "*",
+    "socket.io": "*",
     "sdlmixer": "*"
   },
   "devDependencies": {},
