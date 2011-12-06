@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<script src="http://localhost:8030/socket.io/socket.io.js" type="text/javascript"></script>
+	<script src="donatello-min.js" type="text/javascript"></script>
+	<script>
+		var socket = io.connect('http://localhost:8030');
+	</script>
+	<script>
+		function mousedown( el ) {
+			console.log( 'clicked donatello object' );
+			el.attr( { 'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgba(255, 255, 255, 1), rgba(0, 0, 75, 1) )' } );	
+			socket.emit('play', { note: '28' });
+		}
+		function mouseup( el ) {
+			el.attr( { 'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgb(75, 75, 200), rgb(0, 0, 75) )' } );	
+		}
+						
+		function main() {
+			var padsize = 80;
+			var padspacing = 10;
+			
+			var outer = Donatello.paper( 'paper-div', 20, 20, 8*(padsize+padspacing)+10, 2*(padsize+padspacing)+10 );
+			var paper = outer.rect( 0, 0, 8*(padsize+padspacing)+10, 2*(padsize+padspacing)+10, { 'r': 4, 'backgroundColor': 'grey' } );
+
+			for( var i=0; i < 8; i ++ ) {
+				for( var j=0; j < 2; j ++ ) {
+					var pad = paper.rect( i*(padsize+padspacing)+10, j*(padsize+padspacing)+10, padsize, padsize,
+					 { 
+						'stroke-width': 0,
+						'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgb(75, 75, 200), rgb(0, 0, 75) )',
+						'stroke-style': 'none',
+						'r': 4 
+					});
+					pad.node().addEventListener( 
+						'mousedown', 
+						(function( pad ) { 
+							return function() { 
+								mousedown( pad );
+							}; 
+						})(pad) );
+					pad.node().addEventListener( 
+						'mouseup', 
+						(function( pad ) { 
+							return function() { 
+								mouseup( pad );
+							}; 
+						})(pad) );
+				}
+			}
+		}
+	</script>
+	<style>
+		#paper-div {
+		}
+	</style>
+
+</head>
+<body onload='main();'>
+	<div id="paper-div">
+	</div>
+</body>
+</html>
