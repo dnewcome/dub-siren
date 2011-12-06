@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
 <head>
-	<script src="http://localhost:8030/socket.io/socket.io.js" type="text/javascript"></script>
+	<script src="/socket.io/socket.io.js" type="text/javascript"></script>
 	<script src="donatello-min.js" type="text/javascript"></script>
 	<script>
-		var socket = io.connect('http://localhost:8030');
+		var socket = io.connect();
 		var padmapping = {
 			0: "24",
 			1: "28",
@@ -15,11 +15,21 @@
 	<script>
 		function mousedown( el, padno ) {
 			console.log( 'playing pad ' + padno );
-			el.attr( { 'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgba(255, 255, 255, 1), rgba(0, 0, 75, 1) )' } );	
+
+			// opera
+			// el.attr( { 'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgba(255, 255, 255, 1), rgba(0, 0, 75, 1) )' } );	
+
+			// FF
+			el.attr( { 'backgroundImage': '-moz-radial-gradient(center 45deg, circle closest-side, rgb(255, 255, 255) 0%, rgb(0, 0, 75) 100%)' } );
+
 			socket.emit('play', { note: padmapping[padno] });
 		}
 		function mouseup( el ) {
-			el.attr( { 'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgb(75, 75, 200), rgb(0, 0, 75) )' } );	
+			// opera
+			// el.attr( { 'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgb(75, 75, 200), rgb(0, 0, 75) )' } );	
+
+			// FF
+			el.attr( { 'backgroundImage': '-moz-radial-gradient(center 45deg, circle closest-side, rgb(75, 75, 200) 0%, rgb(0, 0, 75) 100%)' } );
 		}
 						
 		function main() {
@@ -37,7 +47,16 @@
 					var pad = paper.rect( i*(padsize+padspacing)+10, j*(padsize+padspacing)+10, padsize, padsize,
 					 { 
 						'stroke-width': 0,
-						'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgb(75, 75, 200), rgb(0, 0, 75) )',
+
+						// opera
+						// 'backgroundImage': '-o-radial-gradient(50% 50%, 70% 70%, rgb(75, 75, 200), rgb(0, 0, 75) )',
+
+						// FF
+						// 'backgroundImage': '-moz-radial-gradient(center 45deg, circle closest-side, rgb(75, 75, 200) 0%, rgb(0, 0, 75) 100%)',
+
+						// webkit
+						 'backgroundImage': '-webkit-gradient( radial, 500 25%, 20, 500 25%, 40, from(blue), to(#eef) )',
+
 						'stroke-style': 'none',
 						'r': 4 
 					});

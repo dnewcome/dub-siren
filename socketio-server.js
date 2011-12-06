@@ -1,5 +1,9 @@
-var io = require('socket.io').listen(8030);
+var express = require('express');
+var app = express.createServer();
+var io = require('socket.io').listen(app);
 var sdlmixer = require('sdlmixer');
+
+app.use(express.static(__dirname + '/static'));
 
 io.sockets.on('connection', function (socket) {
   socket.on('play', function (data) {
@@ -38,3 +42,4 @@ function play_drum( note ) {
 	}
 }
 
+app.listen(8000);
